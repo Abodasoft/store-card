@@ -1,0 +1,16 @@
+[0;1;32m●[0m php8.2-fpm.service - The PHP 8.2 FastCGI Process Manager
+     Loaded: loaded (/lib/systemd/system/php8.2-fpm.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Sat 2025-07-12 16:17:36 UTC; 2min 8s ago
+       Docs: man:php-fpm8.2(8)
+   Main PID: 60494 (php-fpm8.2)
+     Status: "Processes active: 0, idle: 2, Requests: 1, slow: 0, Traffic: 0.00req/sec"
+      Tasks: 3 (limit: 9478)
+     Memory: 30.2M
+        CPU: 365ms
+     CGroup: /system.slice/php8.2-fpm.service
+             ├─60494 "php-fpm: master process (/etc/php/8.2/fpm/php-fpm.conf)" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+             ├─60495 "php-fpm: pool www" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+             └─60496 "php-fpm: pool www" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+
+Jul 12 16:17:36 ubuntu-card systemd[1]: Starting The PHP 8.2 FastCGI Process Manager...
+Jul 12 16:17:36 ubuntu-card systemd[1]: Started The PHP 8.2 FastCGI Process Manager.
