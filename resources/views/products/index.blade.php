@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<h1>Test</h1>
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
