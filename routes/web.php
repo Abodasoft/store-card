@@ -12,32 +12,6 @@ use App\Http\Controllers\ProductController;
 |--------------------------------------------------------------------------
 */
 
-Route::resource('categories', CategoryController::class);
-
-
-// مجموعة admin للتصنيفات CRUD
-Route::prefix('admin')->middleware(['auth'])->group(function () {
-    Route::resource('categories', CategoryController::class);
-});
-
-// ✅ Admin routes (protected by auth middleware)
-Route::prefix('admin')->middleware(['auth'])->group(function () {
-    Route::resource('categories', CategoryController::class);
-});
-
-Route::get('/categories', [CategoryController::class, 'list'])->name('categories.list');
-
-
-
-// ✅ Products test route
-Route::get('/products', function () {
-    return 'Hello from products route';
-});
-
-// ✅ Categories and Products resource routes
-Route::resource('categories', CategoryController::class);
-Route::resource('products', ProductController::class);
-
 // ✅ Default welcome page
 Route::get('/', function () {
     return view('welcome');
@@ -60,3 +34,20 @@ require __DIR__.'/auth.php';
 
 // ✅ Home route
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// ✅ عرض التصنيفات للعامة (بدون تعديل أو حذف)
+Route::get('/categories', [CategoryController::class, 'list'])->name('categories.list');
+
+// ✅ مجموعة admin للوحة التحكم والعمليات المحمية
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+
+    // Dashboard
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+    // CRUD التصنيفات
+    Route::resource('categories', CategoryController::class);
+
+    // CRUD المنتجات
+    Route::resource('products', ProductController::class);
+});
