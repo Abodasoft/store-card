@@ -13,8 +13,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-    return view('admin.categories.index', compact('categories'));
-
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -22,7 +21,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -30,7 +29,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        Category::create([
+            'name' => $request->name,
+        ]);
+
+        return redirect()->route('categories.index')->with('success', 'تم إضافة التصنيف بنجاح');
     }
 
     /**
@@ -46,23 +53,30 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-    return view('admin.categories.edit', compact('category'));
+        return view('admin.categories.edit', compact('category'));
     }
-
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $category->name = $request->name;
+        $category->save();
+
+        return redirect()->route('categories.index')->with('success', 'تم تحديث التصنيف بنجاح');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('categories.index')->with('success', 'تم حذف التصنيف بنجاح');
     }
 }
