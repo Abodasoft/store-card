@@ -16,7 +16,7 @@ Route::resource('categories', CategoryController::class);
 
 // ✅ Admin routes (protected by auth middleware)
 Route::prefix('admin')->middleware(['auth'])->group(function () {
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::resource('categories', CategoryController::class);
 });
 
 // ✅ Products test route
