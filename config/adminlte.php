@@ -139,11 +139,6 @@ return [
     'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
-    'text' => 'التصنيفات',
-    'url'  => 'categories',
-    'icon' => 'fas fa-list',
-
-
     /*
     |--------------------------------------------------------------------------
     | Layout
@@ -205,6 +200,9 @@ return [
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
+    'text' => 'التصنيفات',
+    'url'  => 'categories',
+    'icon' => 'fas fa-list',
 
     /*
     |--------------------------------------------------------------------------
