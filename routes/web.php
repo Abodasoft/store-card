@@ -12,6 +12,8 @@ use App\Http\Controllers\ProductController;
 |--------------------------------------------------------------------------
 */
 
+Route::get('/categories', [CategoryController::class, 'list'])->name('categories.list');
+
 Route::resource('categories', CategoryController::class);
 
 // ✅ Admin routes (protected by auth middleware)

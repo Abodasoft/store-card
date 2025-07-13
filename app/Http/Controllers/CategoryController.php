@@ -79,4 +79,11 @@ class CategoryController extends Controller
         $category->delete();
         return redirect()->route('categories.index')->with('success', 'تم حذف التصنيف بنجاح');
     }
+    public function list()
+{
+    $categories = Category::all();
+    return view('categories.list', compact('categories'));
 }
+
+}
+
