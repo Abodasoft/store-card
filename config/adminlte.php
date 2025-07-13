@@ -297,18 +297,8 @@ return [
     |
     */
 
-    'menu' => [        
-        // Navbar items:
-        [
-            'type' => 'navbar-search',
-            'text' => 'search',
-            'topnav_right' => true,
-        ],
-        [
-            'type' => 'fullscreen-widget',
-            'topnav_right' => true,
-        ],
-          [
+    'menu' => [
+  [
         'text' => 'Dashboard',
         'url'  => 'admin/dashboard',
         'icon' => 'fas fa-tachometer-alt',
@@ -323,7 +313,17 @@ return [
         'url'  => 'products',
         'icon' => 'fas fa-box',
     ],
-    ],
+],        
+        // Navbar items:
+        [
+            'type' => 'navbar-search',
+            'text' => 'search',
+            'topnav_right' => true,
+        ],
+        [
+            'type' => 'fullscreen-widget',
+            'topnav_right' => true,
+        ],
 
         // Sidebar items:
         [
@@ -407,7 +407,6 @@ return [
             'icon_color' => 'cyan',
             'url' => '#',
         ],
-
     /*
     |--------------------------------------------------------------------------
     | Menu Filters
