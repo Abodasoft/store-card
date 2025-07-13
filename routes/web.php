@@ -12,9 +12,11 @@ use App\Http\Controllers\ProductController;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/categories', [CategoryController::class, 'list'])->name('categories.list');
-
 Route::resource('categories', CategoryController::class);
+
+Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index'])
+    ->middleware(['auth'])
+    ->name('categories.index');
 
 // ✅ Admin routes (protected by auth middleware)
 Route::prefix('admin')->middleware(['auth'])->group(function () {
