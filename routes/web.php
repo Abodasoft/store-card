@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Config;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -22,8 +23,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
-})->middleware(['auth']);
-
+});
 
 Route::get('/products', function () {
     return 'Hello from products route';
