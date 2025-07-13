@@ -1,10 +1,11 @@
 <?php
-// test push from local
+use Illuminate\Support\Facades\Config;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
-
+use App\Models\Category;
+use App\Models\Product;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +16,22 @@ use App\Http\Controllers\ProductController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/categories', function() {
+    return Category::all();
+});
+
+Route::get('/products', function() {
+    return Product::all();
+});
+
 
 Route::resource('categories', CategoryController::class);
 Route::resource('products', ProductController::class);
+
+Route::get('/test-db', function () {
+    return Config::get('database.connections.mysql.database');
+});
+
 
 Route::get('/', function () {
     return view('welcome');
