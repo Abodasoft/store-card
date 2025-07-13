@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Config;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
@@ -13,58 +12,39 @@ use App\Http\Controllers\ProductController;
 |--------------------------------------------------------------------------
 */
 
-// Admin routes (protected by auth middleware)
+// ✅ Admin routes (protected by auth middleware)
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 });
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-);
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-});
-
-// Products test route
+// ✅ Products test route
 Route::get('/products', function () {
     return 'Hello from products route';
 });
 
-// Categories and Products resource routes
+// ✅ Categories and Products resource routes
 Route::resource('categories', CategoryController::class);
 Route::resource('products', ProductController::class);
 
-// Default welcome page
+// ✅ Default welcome page
 Route::get('/', function () {
     return view('welcome');
 });
 
-// User dashboard
+// ✅ User dashboard
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Profile routes (protected)
+// ✅ Profile routes (protected)
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Auth routes
+// ✅ Auth routes
 require __DIR__.'/auth.php';
 
-// Home route
+// ✅ Home route
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Remove duplicate Auth::routes()
-
-
-/*
-✅ ملاحظاتك:
-- أزلت التكرار في Auth::routes().
-- صححت namespace DashboardController لاستدعائه من Admin\DashboardController كما هو في مجلدك.
-- إذا لم يكن لديك DashboardController داخل app/Http/Controllers/Admin، أنشئه فورًا.
-
-✦ أخبرني إذا كنت تريد كود Controller admin dashboard كامل ومجلد views للإدارة الآن.
-*/
