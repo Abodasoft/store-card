@@ -69,11 +69,6 @@ return [
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'Admin Logo',
-[
-    'text' => 'التصنيفات',
-    'url'  => 'categories',
-    'icon' => 'fas fa-list',
-],
 
     /*
     |--------------------------------------------------------------------------
@@ -144,6 +139,10 @@ return [
     'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
+    'text' => 'التصنيفات',
+    'url'  => 'categories',
+    'icon' => 'fas fa-list',
+
 
     /*
     |--------------------------------------------------------------------------
