@@ -20,6 +20,11 @@ Route::get('/categories', function() {
     return Category::all();
 });
 
+Route::get('/products', function () {
+    return 'Hello from products route';
+});
+
+
 
 Route::resource('categories', CategoryController::class);
 Route::resource('products', ProductController::class);
