@@ -69,6 +69,11 @@ return [
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'Admin Logo',
+[
+    'text' => 'التصنيفات',
+    'url'  => 'categories',
+    'icon' => 'fas fa-list',
+],
 
     /*
     |--------------------------------------------------------------------------
