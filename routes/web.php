@@ -12,6 +12,8 @@ use App\Http\Controllers\ProductController;
 |--------------------------------------------------------------------------
 */
 
+Route::resource('categories', CategoryController::class);
+
 // ✅ Admin routes (protected by auth middleware)
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
