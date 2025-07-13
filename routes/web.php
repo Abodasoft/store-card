@@ -14,9 +14,13 @@ use App\Http\Controllers\ProductController;
 
 Route::resource('categories', CategoryController::class);
 
-Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index'])
-    ->middleware(['auth'])
-    ->name('categories.index');
+// صفحة عرض التصنيفات العامة
+Route::get('/categories', [CategoryController::class, 'list'])->name('categories.list');
+
+// مجموعة admin للتصنيفات CRUD
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    Route::resource('categories', CategoryController::class);
+});
 
 // ✅ Admin routes (protected by auth middleware)
 Route::prefix('admin')->middleware(['auth'])->group(function () {

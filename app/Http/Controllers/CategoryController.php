@@ -85,5 +85,6 @@ class CategoryController extends Controller
     return view('categories.list', compact('categories'));
 }
 
+
 }
 
