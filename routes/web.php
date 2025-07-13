@@ -21,9 +21,9 @@ Route::get('/categories', function() {
 });
 
 Route::get('/products', function () {
-    $products = Product::all();
-    return view('products.index', compact('products'));
+    return 'Products route is working';
 });
+
 
 Route::resource('categories', CategoryController::class);
 Route::resource('products', ProductController::class);
