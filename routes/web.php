@@ -12,19 +12,17 @@ use App\Http\Controllers\ProductController;
 | Web Routes
 |--------------------------------------------------------------------------
 */
-<<<<<<< HEAD
 
 // Admin routes (protected by auth middleware)
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-=======
+});
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth']);
 
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
->>>>>>> dbe3f29c35256c794c8ecb34cc101291e97f668b
 });
 
 // Products test route
