@@ -84,7 +84,10 @@ class CategoryController extends Controller
     $categories = Category::all();
     return view('categories.list', compact('categories'));
 }
-
-
+    public function products(Category $category)
+{
+    $products = $category->products; // جلب جميع المنتجات التابعة للتصنيف
+    return view('categories.products', compact('category', 'products'));
+}
 }
 
