@@ -19,7 +19,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 });
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
-})->middleware(['auth']);
+);
 
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
