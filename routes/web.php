@@ -20,10 +20,10 @@ Route::get('/categories', function() {
     return Category::all();
 });
 
-Route::get('/products', function() {
-    return Product::all();
+Route::get('/products', function () {
+    $products = Product::all();
+    return view('products.index', compact('products'));
 });
-
 
 Route::resource('categories', CategoryController::class);
 Route::resource('products', ProductController::class);
