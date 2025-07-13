@@ -12,17 +12,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-                $categories = Category::all();
-    return view('categories.index', compact('categories'));
-    
-=======
-        $categories = Category::all();
-    return view('categories.index', compact('categories'));
->>>>>>> 647a2b71071c1413ca198fa786c2ca803618ef47
-    }
 
-    /**
+
+        }
+     /**
      * Show the form for creating a new resource.
      */
     public function create()
