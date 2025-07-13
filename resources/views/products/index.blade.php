@@ -1,25 +1,16 @@
 <!DOCTYPE html>
-<h1>Test</h1>
-<html lang="ar">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>قائمة المنتجات</title>
+    <title>Products List</title>
 </head>
 <body>
-    <h1>المنتجات</h1>
-    <table border="1" cellpadding="10">
-        <tr>
-            <th>الاسم</th>
-            <th>السعر</th>
-            <th>الفئة</th>
-        </tr>
+    <h1>قائمة المنتجات</h1>
+
+    <ul>
         @foreach($products as $product)
-        <tr>
-            <td>{{ $product->name }}</td>
-            <td>{{ $product->price }}</td>
-            <td>{{ $product->category_id }}</td>
-        </tr>
+            <li>{{ $product->name }} - {{ $product->price }}$</li>
         @endforeach
-    </table>
+    </ul>
 </body>
 </html>

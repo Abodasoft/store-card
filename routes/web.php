@@ -19,9 +19,6 @@ use App\Models\Product;
 Route::get('/categories', function() {
     return Category::all();
 });
-Route::get('/test-products', function () {
-    return App\Models\Product::all();
-});
 
 Route::get('/products', function () {
     $products = Product::all();
@@ -31,9 +28,6 @@ Route::get('/products', function () {
 Route::resource('categories', CategoryController::class);
 Route::resource('products', ProductController::class);
 
-Route::get('/test-db', function () {
-    return Config::get('database.connections.mysql.database');
-});
 
 
 Route::get('/', function () {
