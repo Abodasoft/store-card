@@ -297,7 +297,7 @@ return [
     |
     */
 
-    'menu' => [
+    'menu' => [        
         // Navbar items:
         [
             'type' => 'navbar-search',
@@ -308,6 +308,22 @@ return [
             'type' => 'fullscreen-widget',
             'topnav_right' => true,
         ],
+          [
+        'text' => 'Dashboard',
+        'url'  => 'admin/dashboard',
+        'icon' => 'fas fa-tachometer-alt',
+    ],
+    [
+        'text' => 'التصنيفات',
+        'url'  => 'categories',
+        'icon' => 'fas fa-list',
+    ],
+    [
+        'text' => 'المنتجات',
+        'url'  => 'products',
+        'icon' => 'fas fa-box',
+    ],
+    ],
 
         // Sidebar items:
         [
@@ -390,13 +406,7 @@ return [
             'text' => 'information',
             'icon_color' => 'cyan',
             'url' => '#',
-        [
-            'text' => 'التصنيفات',
-            'url'  => 'categories',
-            'icon' => 'fas fa-list',
         ],
-        ],
-    ],
 
     /*
     |--------------------------------------------------------------------------
