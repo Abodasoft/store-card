@@ -16,6 +16,10 @@ use App\Models\Product;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
+});
+
 Route::get('/categories', function() {
     return Category::all();
 });
