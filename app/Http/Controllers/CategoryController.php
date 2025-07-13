@@ -44,10 +44,11 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Category $category)
     {
-        //
+    return view('admin.categories.edit', compact('category'));
     }
+
 
     /**
      * Update the specified resource in storage.
