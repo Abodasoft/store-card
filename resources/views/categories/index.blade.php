@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-    <title>Categories</title>
+    <meta charset="UTF-8">
+    <title>قائمة التصنيفات</title>
 </head>
 <body>
-    <h1>Categories</h1>
+    <h1>قائمة التصنيفات</h1>
+
     <ul>
-        @foreach ($categories as $category)
+        @foreach($categories as $category)
             <li>{{ $category->name }}</li>
         @endforeach
     </ul>
