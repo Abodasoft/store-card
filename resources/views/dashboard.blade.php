@@ -1,4 +1,13 @@
 <h1>مرحباً بك في لوحة تحكم الإدارة</h1>
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <h1>Admin Dashboard working ✅</h1>
+</div>
+@endsection
+
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
