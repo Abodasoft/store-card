@@ -19,6 +19,9 @@ use App\Models\Product;
 Route::get('/categories', function() {
     return Category::all();
 });
+Route::get('/test-products', function () {
+    return App\Models\Product::all();
+});
 
 Route::get('/products', function () {
     $products = Product::all();
