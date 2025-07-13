@@ -21,8 +21,9 @@ Route::get('/categories', function() {
 });
 
 Route::get('/products', function () {
-    return 'Products route is working';
+    return 'Hello from products route';
 });
+
 
 
 Route::resource('categories', CategoryController::class);
