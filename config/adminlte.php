@@ -305,7 +305,7 @@ return [
     ],
     [
         'text' => 'التصنيفات',
-        'url'  => 'categories',
+        'url'  => 'admin/categories',
         'icon' => 'fas fa-list',
     ],
     [

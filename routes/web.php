@@ -25,7 +25,9 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 // ✅ Admin routes (protected by auth middleware)
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('categories', CategoryController::class);
+    Route::resource('products', ProductController::class);
 });
+
 
 // ✅ Products test route
 Route::get('/products', function () {
