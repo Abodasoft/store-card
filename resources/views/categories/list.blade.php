@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'قائمة التصنيفات')
-
 @section('content')
-    <h1>قائمة التصنيفات</h1>
+    <h1>كل التصنيفات</h1>
 
     <ul>
         @foreach($categories as $category)

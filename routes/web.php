@@ -14,8 +14,6 @@ use App\Http\Controllers\ProductController;
 
 Route::resource('categories', CategoryController::class);
 
-// صفحة عرض التصنيفات العامة
-Route::get('/categories', [CategoryController::class, 'list'])->name('categories.list');
 
 // مجموعة admin للتصنيفات CRUD
 Route::prefix('admin')->middleware(['auth'])->group(function () {
@@ -25,8 +23,10 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 // ✅ Admin routes (protected by auth middleware)
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('categories', CategoryController::class);
-    Route::resource('products', ProductController::class);
 });
+
+Route::get('/categories', [CategoryController::class, 'list'])->name('categories.list');
+
 
 
 // ✅ Products test route
