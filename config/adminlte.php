@@ -200,9 +200,6 @@ return [
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
-    'text' => 'التصنيفات',
-    'url'  => 'categories',
-    'icon' => 'fas fa-list',
 
     /*
     |--------------------------------------------------------------------------
@@ -393,6 +390,11 @@ return [
             'text' => 'information',
             'icon_color' => 'cyan',
             'url' => '#',
+        [
+            'text' => 'التصنيفات',
+            'url'  => 'categories',
+            'icon' => 'fas fa-list',
+        ],
         ],
     ],
 
