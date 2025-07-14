@@ -46,7 +46,7 @@ class CategoryController extends Controller
 public function show(Category $category)
 {
     $products = $category->products; // جلب منتجات التصنيف
-    return view('categories.show', compact('category', 'products'));
+    return view('admin.categories.show', compact('category', 'products'));
 }
 
 
