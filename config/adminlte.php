@@ -303,11 +303,14 @@ return [
         'url'  => 'admin/dashboard',
         'icon' => 'fas fa-tachometer-alt',
     ],
-    [
-        'text' => 'إدارة التصنيفات',
-        'url'  => 'admin/categories',
-        'icon' => 'fas fa-list',
+    [   
+
+    'text' => 'إدارة التصنيفات',
+    'url'  => 'admin/categories',
+    'icon' => 'fas fa-list',
+    "$user->hasRole('Admin');"
     ],
+
     [
         'text' => 'المنتجات',
         'url'  => 'admin/products',
