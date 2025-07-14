@@ -1,15 +1,28 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('title', 'عرض التصنيف: ' . $category->name)
+
+@section('content_header')
+    <h1>المنتجات ضمن: {{ $category->name }}</h1>
+@stop
 
 @section('content')
-    <h1>المنتجات في تصنيف: {{ $category->name }}</h1>
-
     @if($products->count())
-        <ul>
+        <table class="table table-bordered">
+            <tr>
+                <th>ID</th>
+                <th>اسم المنتج</th>
+                <th>السعر</th>
+            </tr>
             @foreach($products as $product)
-                <li>{{ $product->name }} - ${{ $product->price }}</li>
+            <tr>
+                <td>{{ $product->id }}</td>
+                <td>{{ $product->name }}</td>
+                <td>{{ $product->price }}</td>
+            </tr>
             @endforeach
-        </ul>
+        </table>
     @else
-        <p>لا توجد منتجات ضمن هذا التصنيف.</p>
+        <p>لا يوجد منتجات في هذا التصنيف حالياً.</p>
     @endif
-@endsection
+@stop
