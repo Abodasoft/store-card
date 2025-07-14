@@ -12,38 +12,45 @@ use App\Http\Controllers\ProductController;
 |--------------------------------------------------------------------------
 */
 
-// ✅ Default welcome page
+// 🔹 Default welcome page
 Route::get('/', function () {
     return view('welcome');
 });
 
-// ✅ User dashboard
+// 🔹 User dashboard (protected)
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// ✅ Profile routes (protected)
+// 🔹 Profile routes (protected)
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// ✅ Auth routes
+// 🔹 Auth routes
 require __DIR__.'/auth.php';
 
-// ✅ Home route
+// 🔹 Home route
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-// ✅ عرض التصنيفات للعامة (بدون تعديل أو حذف)
+// ==============================
+// ✅ PUBLIC ROUTES
+// ==============================
+
+// 🔹 عرض قائمة التصنيفات (public)
 Route::get('/categories', [CategoryController::class, 'list'])->name('categories.list');
 
-Route::get('categories/{category}/products', [CategoryController::class, 'showProducts'])
-    ->name('categories.products');
+// 🔹 عرض منتجات تصنيف معين (public)
+Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 
 
-// ✅ مجموعة admin للوحة التحكم والعمليات المحمية
+// ==============================
+// ✅ ADMIN ROUTES (protected)
+// ==============================
+
 Route::prefix('admin')->middleware(['auth'])->group(function () {
 
     // Dashboard
@@ -54,6 +61,5 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 
     // CRUD المنتجات
     Route::resource('products', ProductController::class);
-    
     
 });
