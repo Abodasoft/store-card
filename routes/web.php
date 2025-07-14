@@ -39,6 +39,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // ✅ عرض التصنيفات للعامة (بدون تعديل أو حذف)
 Route::get('/categories', [CategoryController::class, 'list'])->name('categories.list');
 
+Route::get('categories/{category}/products', [CategoryController::class, 'showProducts'])
+    ->name('categories.products');
+
+
 // ✅ مجموعة admin للوحة التحكم والعمليات المحمية
 Route::prefix('admin')->middleware(['auth'])->group(function () {
 

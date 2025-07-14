@@ -91,6 +91,13 @@ public function products(Category $category)
     $products = $category->products;
     return view('categories.products', compact('category', 'products'));
 }
+public function showProducts(Category $category)
+{
+    $products = $category->products;
+    return view('categories.products', compact('category', 'products'));
+}
+
+
 
 }
 
