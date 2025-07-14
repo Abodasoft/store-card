@@ -40,21 +40,21 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // ✅ PUBLIC ROUTES
 // ==============================
 
+// 🔹 عرض قائمة التصنيفات (public)
+Route::get('/categories', [CategoryController::class, 'list'])->name('categories.list');
+
 // 🔹 عرض منتجات تصنيف معين (public)
-// ✅ أبقي فقط عرض منتجات التصنيف للمستخدمين
 Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 
 
-// ==============================
-// ✅ ADMIN ROUTES ONLY
-// ==============================
+// ✅ Routes للمستخدمين العامة
+Route::get('/categories', [CategoryController::class, 'list'])->name('categories.list');
+Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 
+
+// ✅ Routes خاصة بالـ admin فقط تحت /admin
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-
-    // 🔹 إدارة التصنيفات (admin only)
     Route::resource('categories', CategoryController::class);
-
-    // 🔹 إدارة المنتجات (admin only)
     Route::resource('products', ProductController::class);
 });
