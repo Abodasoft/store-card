@@ -20,7 +20,7 @@ Route::get('/', function () {
 // 🔹 User dashboard (protected)
 Route::get('/dashboard', function () {
     return view('dashboard');
-});
+})->middleware(['auth'])->name('dashboard');
 
 // 🔹 Profile routes (protected)
 Route::middleware('auth')->group(function () {
@@ -28,9 +28,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-// 🔹 Auth routes
-require __DIR__.'/auth.php';
 
 // ==============================
 // ✅ PUBLIC ROUTES
