@@ -297,27 +297,23 @@ return [
     |
     */
 
-'menu' => [
+    'menu' => [
     [
         'text' => 'Dashboard',
         'url'  => 'admin/dashboard',
         'icon' => 'fas fa-tachometer-alt',
     ],
-    [   
-
-    'text' => 'إدارة التصنيفات',
-    'url'  => 'admin/categories',
-    'icon' => 'fas fa-list',
-    "$user->hasRole('Admin');"
+    [
+        'text' => 'إدارة التصنيفات',
+        'url'  => 'admin/categories',
+        'icon' => 'fas fa-list',
     ],
-
     [
         'text' => 'المنتجات',
         'url'  => 'admin/products',
         'icon' => 'fas fa-box',
     ],
 ],
-
 
         // Navbar items:
         [
