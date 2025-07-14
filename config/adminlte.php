@@ -297,7 +297,7 @@ return [
     |
     */
 
-    'menu' => [
+'menu' => [
     [
         'text' => 'Dashboard',
         'url'  => 'admin/dashboard',
@@ -314,6 +314,7 @@ return [
         'icon' => 'fas fa-box',
     ],
 ],
+
 
         // Navbar items:
         [
