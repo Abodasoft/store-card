@@ -9,13 +9,14 @@ use App\Models\Product;
 
 class AdminController extends Controller
 {
-    public function dashboard()
-    {
-        $categories = Category::all();
-        $products = Product::with('category')->get();
+public function dashboard()
+{
+    $categories = Category::all();
+    $products = Product::with('category')->get();
 
-        return view('admin.dashboard', compact('categories', 'products'));
-    }
+    return view('admin.dashboard', compact('categories', 'products'));
+}
+
 
     // باقي CRUD التصنيفات والمنتجات هنا كما كتبناه سابقًا
 }
