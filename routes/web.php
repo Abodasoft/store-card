@@ -4,6 +4,20 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\Admin\AdminController;
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::post('/admin/category/add', [AdminController::class, 'addCategory'])->name('admin.category.add');
+    Route::post('/admin/product/add', [AdminController::class, 'addProduct'])->name('admin.product.add');
+
+    // باقي routes للتعديل والحذف
+    Route::post('/admin/category/edit/{id}', [AdminController::class, 'editCategory'])->name('admin.category.edit');
+    Route::get('/admin/category/delete/{id}', [AdminController::class, 'deleteCategory'])->name('admin.category.delete');
+
+    Route::post('/admin/product/edit/{id}', [AdminController::class, 'editProduct'])->name('admin.product.edit');
+    Route::get('/admin/product/delete/{id}', [AdminController::class, 'deleteProduct'])->name('admin.product.delete');
+});
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
