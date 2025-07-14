@@ -43,11 +43,6 @@
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-    <a href="{{ url('/admin/categories') }}" class="nav-link">
-        <i class="nav-icon fas fa-list"></i>
-        <p>إدارة التصنيفات</p>
     </a>
 </li>
 
