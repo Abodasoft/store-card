@@ -20,7 +20,7 @@ Route::get('/', function () {
 // 🔹 User dashboard (protected)
 Route::get('/dashboard', function () {
     return view('dashboard');
-
+});
 
 // 🔹 Profile routes (protected)
 Route::middleware('auth')->group(function () {
