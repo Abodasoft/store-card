@@ -298,25 +298,23 @@ return [
     */
 
     'menu' => [
-  [
+    [
         'text' => 'Dashboard',
         'url'  => 'admin/dashboard',
         'icon' => 'fas fa-tachometer-alt',
     ],
-     [
     [
-    'text' => 'إدارة التصنيفات',
-    'url'  => 'admin/categories',
-    'icon' => 'fas fa-list',
+        'text' => 'إدارة التصنيفات',
+        'url'  => 'admin/categories',
+        'icon' => 'fas fa-list',
     ],
+    [
+        'text' => 'المنتجات',
+        'url'  => 'admin/products',
+        'icon' => 'fas fa-box',
+    ],
+],
 
-    ],
-    [
-    'text' => 'إدارة المنتجات',
-    'url'  => 'admin/products',
-    'icon' => 'fas fa-box',
-    ],
-],        
         // Navbar items:
         [
             'type' => 'navbar-search',
