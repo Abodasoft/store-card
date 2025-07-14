@@ -14,22 +14,10 @@ use App\Http\Controllers\ProductController;
 
 Route::resource('categories', CategoryController::class);
 
-Route::get('/categories', [CategoryController::class, 'list'])->name('categories.list');
-
-
-// مجموعة admin للتصنيفات CRUD
-Route::prefix('admin')->middleware(['auth'])->group(function () {
-    Route::resource('categories', CategoryController::class);
-});
-
 // ✅ Admin routes (protected by auth middleware)
 Route::prefix('admin')->middleware(['auth'])->group(function () {
-    Route::resource('categories', CategoryController::class);
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 });
-
-Route::get('/categories', [CategoryController::class, 'list'])->name('categories.list');
-
-
 
 // ✅ Products test route
 Route::get('/products', function () {

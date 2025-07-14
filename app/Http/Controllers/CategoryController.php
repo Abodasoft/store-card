@@ -13,7 +13,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('admin.categories.index', compact('categories'));
+    return view('categories.index', compact('categories'));
     }
 
     /**
@@ -21,7 +21,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        //
     }
 
     /**
@@ -29,74 +29,38 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-        ]);
-
-        Category::create([
-            'name' => $request->name,
-        ]);
-
-        return redirect()->route('categories.index')->with('success', 'تم إضافة التصنيف بنجاح');
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show(string $id)
     {
-    $products = $category->products;
-    return view('categories.products', compact('category', 'products'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit(string $id)
     {
-        return view('admin.categories.edit', compact('category'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, string $id)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-        ]);
-
-        $category->name = $request->name;
-        $category->save();
-
-        return redirect()->route('categories.index')->with('success', 'تم تحديث التصنيف بنجاح');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy(string $id)
     {
-        $category->delete();
-        return redirect()->route('categories.index')->with('success', 'تم حذف التصنيف بنجاح');
+        //
     }
-    public function list()
-{
-    $categories = Category::all();
-    return view('categories.list', compact('categories'));
 }
-public function products(Category $category)
-{
-    $products = $category->products;
-    return view('categories.products', compact('category', 'products'));
-}
-public function showProducts(Category $category)
-{
-    $products = $category->products;
-    return view('categories.products', compact('category', 'products'));
-}
-
-
-
-}
-
