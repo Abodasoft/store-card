@@ -31,7 +31,7 @@
                 </form>
             </td>
             <td>
-    <a href="{{ route('categories.products', $category) }}" class="btn btn-info btn-sm">عرض التصنيف</a>
+    <a href="{{ route('categories.show', $category) }}" class="btn btn-info btn-sm">عرض التصنيف</a>
 
 
         </tr>
