@@ -29,6 +29,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/login', function () {
+    return 'Login route disabled temporarily.';
+})->name('login');
+
 // ==============================
 // ✅ PUBLIC ROUTES
 // ==============================
