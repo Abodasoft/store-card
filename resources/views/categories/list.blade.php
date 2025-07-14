@@ -1,11 +1,16 @@
 @extends('layouts.app')
 
+@section('title', 'قائمة التصنيفات')
+
 @section('content')
-    <h1>كل التصنيفات</h1>
+    <h1>قائمة التصنيفات</h1>
     <ul>
         @foreach($categories as $category)
-            <li>{{ $category->name }}</li>
+            <li>
+                <a href="{{ route('categories.show', $category) }}">
+                    {{ $category->name }}
+                </a>
+            </li>
         @endforeach
     </ul>
 @endsection
-َ
