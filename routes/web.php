@@ -52,14 +52,7 @@ Route::get('/categories/{category}', [CategoryController::class, 'show'])->name(
 // ==============================
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
-
-    // Dashboard
     Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-
-    // CRUD التصنيفات
     Route::resource('categories', CategoryController::class);
-
-    // CRUD المنتجات
     Route::resource('products', ProductController::class);
-    
 });
