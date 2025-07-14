@@ -1,14 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Web Routes (Cleaned)
 |--------------------------------------------------------------------------
 */
 
@@ -16,6 +13,10 @@ use App\Http\Controllers\ProductController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// 🔹 Public routes only (no login, no admin)
+Route::get('/categories', [CategoryController::class, 'list'])->name('categories.list');
+Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 
 // 🔹 User dashboard (protected)
 Route::get('/dashboard', function () {
@@ -36,22 +37,19 @@ require __DIR__.'/auth.php';
 // ✅ PUBLIC ROUTES
 // ==============================
 
-// 🔹 عرض قائمة التصنيفات (public)
-Route::get('/categories', [CategoryController::class, 'list'])->name('categories.list');
-
-// 🔹 عرض منتجات تصنيف معين (public)
-Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
-
 
 // ==============================
 // ✅ ADMIN ROUTES (protected)
 // ==============================
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
+<<<<<<< HEAD
 
     Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
+=======
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+>>>>>>> ff48d98db1bc3b5a65a6c45865e6e318a24e267e
     Route::resource('categories', CategoryController::class);
     Route::resource('products', ProductController::class);
-    
 });
