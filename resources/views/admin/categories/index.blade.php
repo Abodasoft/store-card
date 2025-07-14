@@ -30,6 +30,15 @@
                     <button class="btn btn-danger btn-sm">حذف</button>
                 </form>
             </td>
+            <td>
+            <a href="{{ route('categories.products', $category) }}" class="btn btn-info btn-sm">عرض المنتجات</a>
+            <a href="{{ route('categories.edit', $category) }}" class="btn btn-warning btn-sm">تعديل</a>
+            <form action="{{ route('categories.destroy', $category) }}" method="POST" style="display:inline;">
+                @csrf @method('DELETE')
+                <button class="btn btn-danger btn-sm">حذف</button>
+            </form>
+        </td>
+
         </tr>
         @endforeach
     </table>

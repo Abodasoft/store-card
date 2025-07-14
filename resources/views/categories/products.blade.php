@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'منتجات ' . $category->name)
+@section('title', 'منتجات التصنيف: ' . $category->name)
 
 @section('content_header')
     <h1>منتجات التصنيف: {{ $category->name }}</h1>
@@ -8,11 +8,20 @@
 
 @section('content')
     @if($products->count())
-        <ul>
+        <table class="table table-bordered">
+            <tr>
+                <th>ID</th>
+                <th>الاسم</th>
+                <th>السعر</th>
+            </tr>
             @foreach($products as $product)
-                <li>{{ $product->name }}</li>
+            <tr>
+                <td>{{ $product->id }}</td>
+                <td>{{ $product->name }}</td>
+                <td>{{ $product->price }}</td>
+            </tr>
             @endforeach
-        </ul>
+        </table>
     @else
         <p>لا توجد منتجات في هذا التصنيف.</p>
     @endif

@@ -52,5 +52,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('products', ProductController::class);
     
     Route::get('/categories/{category}/products', [CategoryController::class, 'products'])->name('categories.products');
+    
+    Route::get('categories/{category}/products', [CategoryController::class, 'products'])->name('categories.products');
 
 });
