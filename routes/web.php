@@ -32,10 +32,6 @@ Route::middleware('auth')->group(function () {
 // 🔹 Auth routes
 require __DIR__.'/auth.php';
 
-// 🔹 Home route
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
 // ==============================
 // ✅ PUBLIC ROUTES
 // ==============================
@@ -53,13 +49,9 @@ Route::get('/categories/{category}', [CategoryController::class, 'show'])->name(
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
 
-    // Dashboard
     Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
-    // CRUD التصنيفات
     Route::resource('categories', CategoryController::class);
-
-    // CRUD المنتجات
     Route::resource('products', ProductController::class);
     
 });
