@@ -47,14 +47,3 @@ Route::get('/categories', [CategoryController::class, 'list'])->name('categories
 Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 
 
-// ✅ Routes للمستخدمين العامة
-Route::get('/categories', [CategoryController::class, 'list'])->name('categories.list');
-Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
-
-
-// ✅ Routes خاصة بالـ admin فقط تحت /admin
-Route::prefix('admin')->middleware(['auth'])->group(function () {
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::resource('categories', CategoryController::class);
-    Route::resource('products', ProductController::class);
-});
