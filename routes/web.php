@@ -40,12 +40,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // ✅ PUBLIC ROUTES
 // ==============================
 
-// 🔹 عرض قائمة التصنيفات (public)
-Route::get('/categories', [CategoryController::class, 'list'])->name('categories.list');
-
-// 🔹 عرض منتجات تصنيف معين (public)
-Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
-
 
 // ==============================
 // ✅ ADMIN ROUTES (protected)
