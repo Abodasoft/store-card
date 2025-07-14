@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'عرض التصنيف: ' . $category->name)
+@section('title', $category->name) {{-- ✅ تم حذف "عرض التصنيف:" والإبقاء على الاسم فقط --}}
 
 @section('content_header')
-    <h1>المنتجات ضمن: {{ $category->name }}</h1>
+    <h1>المنتجات ضمن التصنيف: {{ $category->name }}</h1>
 @stop
 
 @section('content')
