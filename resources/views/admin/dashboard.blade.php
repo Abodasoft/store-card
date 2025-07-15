@@ -1,7 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.material')
+
+@section('title', 'لوحة التحكم الرئيسية')
 
 @section('content')
-<div class="container">
   <h1>✅ لوحة التحكم تعمل بنجاح</h1>
-</div>
+  {{-- أضف هنا جداول التصنيفات والمنتجات --}}
 @endsection
