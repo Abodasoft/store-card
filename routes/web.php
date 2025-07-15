@@ -14,6 +14,9 @@ use App\Http\Controllers\Admin\AdminController;
 |--------------------------------------------------------------------------
 */
 
+Route::get('/test-admin', [AdminController::class, 'dashboard']);
+
+
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
     // ✅ لوحة التحكم الرئيسية
