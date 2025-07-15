@@ -14,6 +14,13 @@ use App\Http\Controllers\Admin\AdminController;
 |--------------------------------------------------------------------------
 */
 
+
+
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+
+    // ✅ لوحة التحكم الرئيسية
+
+
     // ✅ التصنيفات
     Route::post('/category/add', [AdminController::class, 'addCategory'])->name('admin.category.add');
     Route::post('/category/edit/{id}', [AdminController::class, 'editCategory'])->name('admin.category.edit');
@@ -23,7 +30,7 @@ use App\Http\Controllers\Admin\AdminController;
     Route::post('/product/add', [AdminController::class, 'addProduct'])->name('admin.product.add');
     Route::post('/product/edit/{id}', [AdminController::class, 'editProduct'])->name('admin.product.edit');
     Route::get('/product/delete/{id}', [AdminController::class, 'deleteProduct'])->name('admin.product.delete');
-
+});
 
 
 /*
