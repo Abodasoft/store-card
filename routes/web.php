@@ -15,11 +15,10 @@ use App\Http\Controllers\Admin\AdminController;
 */
 
 
-
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
     // ✅ لوحة التحكم الرئيسية
-
+    Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
     // ✅ التصنيفات
     Route::post('/category/add', [AdminController::class, 'addCategory'])->name('admin.category.add');
