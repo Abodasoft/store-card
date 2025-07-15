@@ -14,16 +14,6 @@ use App\Http\Controllers\Admin\AdminController;
 |--------------------------------------------------------------------------
 */
 
-    // ✅ التصنيفات
-    Route::post('/category/add', [AdminController::class, 'addCategory'])->name('admin.category.add');
-    Route::post('/category/edit/{id}', [AdminController::class, 'editCategory'])->name('admin.category.edit');
-    Route::get('/category/delete/{id}', [AdminController::class, 'deleteCategory'])->name('admin.category.delete');
-
-    // ✅ المنتجات
-    Route::post('/product/add', [AdminController::class, 'addProduct'])->name('admin.product.add');
-    Route::post('/product/edit/{id}', [AdminController::class, 'editProduct'])->name('admin.product.edit');
-    Route::get('/product/delete/{id}', [AdminController::class, 'deleteProduct'])->name('admin.product.delete');
-
 
 
 /*
